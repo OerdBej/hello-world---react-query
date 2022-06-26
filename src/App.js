@@ -1,24 +1,14 @@
-import { useState } from "react";
-import Fetch from "./components/Fetch";
-import Axios from "./components/Axios";
-import Planets from "./components/Planets";
-import Navbar from "./components/Navbar";
-import People from "./components/People";
+import Characters from "./components/Characters";
+import { QueryClientProvider, QueryClient } from "react-query";
+
+const queryClient = new QueryClient();
 
 const App = () => {
-  const [page, setPage] = useState("planets");
-
   return (
-    <div className="App">
-      <h1>Hello World from React Query</h1>
-
-      <Navbar setPage={setPage} />
-      <Fetch />
-      <Axios />
-
-      <div className="content">
-        {page === "planets" ? <People /> : <Planets />}
-      </div>
+    <div>
+      <QueryClientProvider client={queryClient}>
+        <Characters />
+      </QueryClientProvider>
     </div>
   );
 };

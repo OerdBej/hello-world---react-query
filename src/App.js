@@ -1,6 +1,6 @@
 import Characters from "./components/Characters";
 import { QueryClientProvider, QueryClient } from "react-query";
-
+import "./App.css";
 const queryClient = new QueryClient();
 
 const App = () => {

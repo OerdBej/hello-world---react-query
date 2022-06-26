@@ -23,5 +23,3 @@ export default function Characters() {
     </div>
   );
 }
-
-// first version of data for making query API in comparision to Characters.js

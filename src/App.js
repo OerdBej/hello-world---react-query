@@ -1,38 +1,22 @@
-.App {
-  text-align: center;
-}
+import { useState } from "react";
+import Navbar from "./components./Navbar";
+import Planets from "./components./Planets";
+import People from "./components./People";
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+const App = () => {
+  const [page, setPage] = useState("planets");
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+  return (
+    <div className="App">
+      <h1>Star Wars Info</h1>
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+      <Navbar setPage={setPage} />
 
-.App-link {
-  color: #61dafb;
-}
+      <div className="content">
+        {page === "planets" ? <People /> : <Planets />}
+      </div>
+    </div>
+  );
+};
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+export default App;
